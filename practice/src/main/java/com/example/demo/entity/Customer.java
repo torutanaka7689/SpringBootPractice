@@ -42,7 +42,7 @@ public class Customer implements Serializable {
 	@Column(name = "address")
 	private String address;
 	
-	@Column(name = "buildind_name")
+	@Column(name = "building_name")
 	private String buildingName;
 	
 	@Column(name = "contact_type")

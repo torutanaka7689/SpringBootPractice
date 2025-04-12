@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,6 +37,9 @@ public class AppUser {
 	@Column(name = "FIRST_NAME")
 	private String firstname;
 	
+	@NotBlank
+	@Column(name = "current_sign_in_at")
+	private LocalDateTime lastLogin;
 	
 	public Long getId() {
 		return id;
@@ -74,5 +79,13 @@ public class AppUser {
 	
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
+	}
+	
+	public LocalDateTime getLastLogin() {
+		return lastLogin;
+	}
+	
+	public void setLastLogin(LocalDateTime lastLogin) {
+		this.lastLogin = lastLogin;
 	}
 }

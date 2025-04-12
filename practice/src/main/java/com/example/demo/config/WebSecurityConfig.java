@@ -11,6 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -38,7 +39,7 @@ public class WebSecurityConfig {
 				.logout((logout) -> logout
 						//ログアウト処理
 						.logoutUrl("/logout")
-						.logoutSuccessUrl("/admin/signup")
+						.logoutSuccessUrl("/admin/signin")
 						.permitAll()
 						);
 				

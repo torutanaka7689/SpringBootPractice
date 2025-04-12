@@ -1,9 +1,5 @@
 package com.example.demo.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,12 +26,13 @@ public class AppUserDetailsService implements UserDetailsService {
 		//DBのユーザー検索
 		AppUser appUser = appUserRepository.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found with email:" + email));
-		
+
 		return User.builder()
 				.username(appUser.getEmail())
 				.password(appUser.getPassword())
 				.roles("USER")
 				.build();
 	}
+
 
 }
