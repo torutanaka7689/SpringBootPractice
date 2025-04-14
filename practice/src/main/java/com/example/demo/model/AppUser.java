@@ -37,7 +37,6 @@ public class AppUser {
 	@Column(name = "FIRST_NAME")
 	private String firstname;
 	
-	@NotBlank
 	@Column(name = "current_sign_in_at")
 	private LocalDateTime lastLogin;
 	
