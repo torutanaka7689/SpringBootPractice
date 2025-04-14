@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,9 +9,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.example.demo.handler.LoginSuccessHandler;
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+	
+	@Autowired
+	private LoginSuccessHandler loginSuccessHandler;
 
 	
 	@Bean
@@ -33,6 +39,8 @@ public class WebSecurityConfig {
 						.failureUrl("/admin/signin?error")
 						// ログイン成功後の画面
 						.defaultSuccessUrl("/admin/contacts",true)
+						// 最終ログイン日時
+						.successHandler(loginSuccessHandler)
 						// アクセス権
 						.permitAll()
 				)
