@@ -63,6 +63,7 @@ public class ContactController {
 		
 		return "redirect:/contact/complete";
 		
+		
 	}
 	
 	@GetMapping("/contact/complete")
@@ -79,8 +80,7 @@ public class ContactController {
 		session.invalidate();
 		
 		return "completion";
-		
-		//test
 	}
+	
 
 }
