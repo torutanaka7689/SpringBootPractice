@@ -46,4 +46,5 @@ public class Contact {
 	@Column(name = "body", nullable = false)
 	private String body;
 	
+
 }
